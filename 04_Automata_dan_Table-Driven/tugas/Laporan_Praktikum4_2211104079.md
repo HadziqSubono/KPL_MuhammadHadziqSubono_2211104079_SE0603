@@ -87,6 +87,23 @@ main();
 
 ---
 
+## 4. Penjelasan
+
+1. **Bagaimana konsep state machine diterapkan dalam program ini?**  
+   Konsep state machine diterapkan dalam class `PosisiKarakterGame` dan `DoorMachine`, di mana setiap objek memiliki kondisi (state) yang berubah berdasarkan input tertentu. 
+
+2. **Apa perbedaan utama antara tabel pemetaan (mapping table) dengan state machine?**  
+   - Tabel pemetaan (mapping table) hanya memberikan hubungan antara suatu input dengan output tanpa mempertimbangkan kondisi sebelumnya.
+   - State machine mempertimbangkan kondisi sebelumnya dalam menentukan transisi ke kondisi selanjutnya.
+
+3. **Bagaimana cara kerja class `KodeBuah` dalam mendapatkan kode buah?**  
+   Class `KodeBuah` memiliki metode `getKodeBuah()` yang menerima nama buah sebagai input dan mencocokkannya dengan objek pemetaan (`kodeBuahTable`). Jika ditemukan, akan mengembalikan kode buah yang sesuai.
+
+4. **Bagaimana cara kerja class `PosisiKarakterGame` dalam mengubah posisi karakter?**  
+   Class `PosisiKarakterGame` menggunakan metode `ubahPosisi()`, yang bekerja dengan mengevaluasi posisi saat ini dan mengubahnya sesuai dengan tombol yang ditekan, berdasarkan aturan yang telah didefinisikan.
+
+---
+
 # Laporan Tugas Pendahuluan Modul 4
 
 ## 1. Source Code
@@ -189,3 +206,21 @@ main();
 ## 3. Screenshot Output
 
 !([Screenshot Output](img/ss_tugas_pendahuluan_modul4.png))
+
+---
+
+## 4. Penjelasan
+
+1. **Bagaimana konsep state machine diterapkan dalam program ini?**\
+   Konsep state machine diterapkan dalam class `DoorMachine`, di mana objek memiliki kondisi (`Terkunci` atau `Terbuka`) yang berubah berdasarkan perintah tertentu (`BukaPintu`, `KunciPintu`).
+
+2. **Apa perbedaan utama antara tabel pemetaan (mapping table) dengan state machine?**
+
+   - Tabel pemetaan hanya memberikan hubungan antara suatu input dengan output tanpa mempertimbangkan kondisi sebelumnya.
+   - State machine mempertimbangkan kondisi sebelumnya dalam menentukan transisi ke kondisi selanjutnya.
+
+3. **Bagaimana cara kerja class ****`KodePos`**** dalam mendapatkan kode pos?**\
+   Class `KodePos` memiliki metode `getKodePos()` yang menerima nama kelurahan sebagai input dan mencocokkannya dengan objek pemetaan (`kodePosTable`). Jika ditemukan, akan mengembalikan kode pos yang sesuai.
+
+4. **Bagaimana cara kerja class ****`DoorMachine`**** dalam mengubah keadaan pintu?**\
+   Class `DoorMachine` menggunakan metode `changeState()`, yang bekerja dengan mengevaluasi keadaan saat ini dan mengubahnya berdasarkan perintah yang diberikan.
