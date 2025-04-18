@@ -1,0 +1,32 @@
+{
+	"courses": [
+		{
+			"code": "CCK2DAB3",
+			"name": "Proses Perangkat Lunak"
+		},
+		{
+			"code": "CCK2LAB3",
+			"name": "Kecerdasan Buatan"
+		},
+		{
+			"code": "CCK2JAC2",
+			"name": "Proyek Tingkat II"
+		},
+		{
+			"code": "CCK3IAB2",
+			"name": "Tata Tulis Ilmiah"
+		},
+		{
+			"code": "CCK1LAB3",
+			"name": "Design Thinking"
+		},
+		{
+			"code": "CCK2KAB4",
+			"name": "Konstruksi Perangkat Lunak"
+		},
+		{
+			"code": "CCK3KAB3",
+			"name": "Manajemen Konfigurasi dan Evolusi PL"
+		}
+	]
+}
