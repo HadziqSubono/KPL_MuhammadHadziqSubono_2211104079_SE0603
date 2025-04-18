@@ -1,0 +1,32 @@
+{
+  "members" : [
+     {
+        "firstName": "Dzikri Naufal Wisnu",
+        "lastName": " Pravide",
+        "gender": "male",
+        "age": 21,
+        "nim": "2211104063"
+     },
+     {
+        "firstName": "Muhammad Rizaldy",
+        "lastName": "Akbar",
+        "gender": "male",
+        "age": 21,
+        "nim": "2211104065"
+     },
+     {
+        "firstName": "Muhammad Hadziq",
+        "lastName": "Subono",
+        "gender": "male",
+        "age": 21,
+        "nim": "2211104079"
+     },
+    {
+       "firstName": "Abdul",
+       "lastName": "Roni",
+       "gender": "male",
+       "age": 21,
+       "nim": "2211104080"
+    }
+  ]
+}
