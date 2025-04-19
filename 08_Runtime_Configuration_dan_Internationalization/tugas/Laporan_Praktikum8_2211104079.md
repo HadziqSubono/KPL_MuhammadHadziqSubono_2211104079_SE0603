@@ -183,7 +183,7 @@ function askQuestion(query) {
 ```
 
 # 2. Output
-## DataMahasiswa_2211104079.js
+## app.js
 ![Screenshot Output Pendahuluan Modul 8](img/TugasPendahuluan_app.js.png)
 
 # 3. Penjelasan
