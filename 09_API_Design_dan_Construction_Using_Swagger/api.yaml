@@ -1,0 +1,135 @@
+openapi: 3.0.0
+info:
+  version: 3.0.0
+  title: management mahasiswa
+  description: API untuk mengelola data mahasiswa dan alamat
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/telkomuniversity-868/mahasiswa/3.0.0
+
+paths: 
+  /mahasiswa:
+    get:
+      tags: [mahasiswa]
+      summary: Ambil semua data mahasiswa
+      responses:
+        '200':
+          description: Daftar mahasiswa
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Mahasiswa'
+    post:
+      tags: [mahasiswa]
+      summary: Tambah data mahasiswa
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                nim:
+                  type: string
+                  example: "2211104079"
+                nama_lengkap:
+                  type: string
+                  example: "Muhammad Hadziq Subono"
+                email:
+                  type: string
+                  example: hadziq@gmail.com
+                no_hp:
+                  type: string
+                  example: "085705275125"
+                tanggal_lahir:
+                  type: string
+                  format: date
+                  example: "2004-06-16"
+                jenis_kelamin:
+                  type: string
+                  enum: [Laki-laki, Perempuan]
+              
+      responses:
+        '200':
+          description: Daftar mahasiswa
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Mahasiswa'
+                
+  /mahasiswa/{id}:
+    get:
+      tags: [mahasiswa]
+      summary: Ambil data mahasiswa sesuai ID
+      parameters: 
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            example: 123
+      responses:
+        '200':
+          description: Daftar mahasiswa
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Mahasiswa'
+    delete:
+      tags: [mahasiswa]
+      summary: Hapus data mahasiswa sesuai ID
+      parameters: 
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            example: 123
+      responses:
+        '200':
+          description: Daftar mahasiswa
+          content:
+            application/json:
+              schema:
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: Berhasil menghapus data mahasiswa
+components:
+  schemas:
+    Mahasiswa:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 123
+        nim:
+          type: string
+          example: "2211104079"
+        nama_lengkap:
+          type: string
+          example: "Muhammad Hadziq Subono"
+        email:
+          type: string
+          example: hadziq@gmail.com
+        no_hp:
+          type: string
+          example: "085705275125"
+        tanggal_lahir:
+          type: string
+          format: date
+          example: "2004-06-16"
+        jenis_kelamin:
+          type: string
+          enum: [Laki-laki, Perempuan]
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
