@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP Modul 12 - Pendeteksi Tanda Bilangan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            padding: 50px;
+            width: 100%;
+            max-width: 450px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2d3436;
+            margin-bottom: 35px;
+            font-size: 2.5em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #636e72;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+            font-weight: 400;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 12px;
+            color: #2d3436;
+            font-weight: 600;
+            font-size: 1.2em;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 18px;
+            border: 2px solid #ddd;
+            border-radius: 15px;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+            text-align: center;
+        }
+
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #74b9ff;
+            box-shadow: 0 0 0 4px rgba(116, 185, 255, 0.2);
+            transform: translateY(-2px);
+            background: white;
+        }
+
+        button {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.3em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 8px 20px rgba(116, 185, 255, 0.3);
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(116, 185, 255, 0.4);
+            background: linear-gradient(135deg, #0984e3, #74b9ff);
+        }
+
+        button:active {
+            transform: translateY(-1px);
+        }
+
+        .output {
+            margin-top: 35px;
+            padding: 25px;
+            background: linear-gradient(135deg, #f8f9ff, #e8f4ff);
+            border-radius: 15px;
+            border-left: 6px solid #74b9ff;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .output-label {
+            font-weight: 600;
+            color: #636e72;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .output-value {
+            font-size: 1.8em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .positif {
+            color: #00b894;
+            text-shadow: 0 2px 4px rgba(0, 184, 148, 0.2);
+        }
+
+        .negatif {
+            color: #e17055;
+            text-shadow: 0 2px 4px rgba(225, 112, 85, 0.2);
+        }
+
+        .nol {
+            color: #636e72;
+            text-shadow: 0 2px 4px rgba(99, 110, 114, 0.2);
+        }
+
+        .error {
+            color: #d63031;
+            font-size: 1.3em;
+        }
+
+        .example-section {
+            margin-top: 35px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 15px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .example-section h3 {
+            color: #2d3436;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            text-align: center;
+        }
+
+        .examples {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            text-align: center;
+        }
+
+        .example-item {
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            border: 2px solid #ddd;
+            transition: all 0.3s ease;
+        }
+
+        .example-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .example-input {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #2d3436;
+        }
+
+        .example-output {
+            font-size: 0.9em;
+            margin-top: 5px;
+            font-weight: 600;
+        }
+
+        @keyframes slideIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(20px) scale(0.95); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1); 
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .slide-in {
+            animation: slideIn 0.6s ease;
+        }
+
+        .pulse {
+            animation: pulse 0.5s ease;
+        }
+
+        .info-box {
+            margin-top: 25px;
+            padding: 20px;
+            background: linear-gradient(135deg, #fff5f5, #ffe8e8);
+            border-radius: 12px;
+            border-left: 4px solid #74b9ff;
+            font-size: 0.95em;
+            color: #636e72;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pendeteksi Tanda</h1>
+        <p class="subtitle">Masukkan bilangan untuk mengetahui tandanya</p>
+        
+        <div class="form-group">
+            <label for="inputNumber">Masukkan Bilangan:</label>
+            <input type="number" id="inputNumber" placeholder="Contoh: -5, 0, 10" step="any">
+        </div>
+        
+        <button onclick="cekTandaBilangan()">🔍 Cek Tanda Bilangan</button>
+        
+        <div class="output">
+            <div class="output-label">Hasil Deteksi:</div>
+            <div id="outputLabel" class="output-value">Belum ada input</div>
+        </div>
+
+        <div class="example-section">
+            <h3>📋 Contoh Input & Output</h3>
+            <div class="examples">
+                <div class="example-item">
+                    <div class="example-input">-5</div>
+                    <div class="example-output negatif">Negatif</div>
+                </div>
+                <div class="example-item">
+                    <div class="example-input">0</div>
+                    <div class="example-output nol">Nol</div>
+                </div>
+                <div class="example-item">
+                    <div class="example-input">10</div>
+                    <div class="example-output positif">Positif</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>💡 Cara Kerja:</strong><br>
+            Program ini menggunakan method <code>CariTandaBilangan()</code> yang menganalisis tanda bilangan berdasarkan nilai input dan mengembalikan string hasil klasifikasi.
+        </div>
+    </div>
+
+    <script>
+        // Method CariTandaBilangan sesuai spesifikasi
+        function CariTandaBilangan(a) {
+            if (a < 0) {
+                return "Negatif";
+            } else if (a > 0) {
+                return "Positif";
+            } else {
+                return "Nol";
+            }
+        }
+        
+        // Fungsi untuk menangani klik button
+        function cekTandaBilangan() {
+            const inputNumber = document.getElementById('inputNumber');
+            const outputLabel = document.getElementById('outputLabel');
+            const container = document.querySelector('.container');
+            
+            // Ambil nilai dari textbox
+            const inputValue = inputNumber.value.trim();
+            
+            // Validasi input
+            if (inputValue === '' || isNaN(inputValue)) {
+                outputLabel.textContent = 'Error: Masukkan angka yang valid!';
+                outputLabel.className = 'output-value error';
+                return;
+            }
+            
+            const a = parseFloat(inputValue);
+            
+            // Panggil method CariTandaBilangan
+            const hasil = CariTandaBilangan(a);
+            
+            // Tentukan class CSS berdasarkan hasil
+            let className = 'output-value ';
+            switch (hasil) {
+                case 'Positif':
+                    className += 'positif';
+                    break;
+                case 'Negatif':
+                    className += 'negatif';
+                    break;
+                case 'Nol':
+                    className += 'nol';
+                    break;
+            }
+            
+            // Tampilkan hasil dengan animasi
+            outputLabel.textContent = hasil;
+            outputLabel.className = className + ' slide-in';
+            
+            // Tambahkan efek pulse pada container
+            container.classList.add('pulse');
+            setTimeout(() => {
+                container.classList.remove('pulse');
+            }, 500);
+            
+            // Log untuk debugging/profiling
+            console.log(`Input: ${a}, Hasil: ${hasil}`);
+            
+            // Simulasi beban CPU untuk testing profiling
+            console.time('Processing Time');
+            for (let i = 0; i < 100000; i++) {
+                // Simulasi operasi
+                Math.sqrt(i);
+            }
+            console.timeEnd('Processing Time');
+        }
+        
+        // Event listener untuk Enter key
+        document.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                cekTandaBilangan();
+            }
+        });
+        
+        // Auto-focus pada input
+        window.onload = function() {
+            document.getElementById('inputNumber').focus();
+            console.log('Aplikasi dimuat - siap untuk profiling');
+        };
+        
+        // Function untuk testing berbagai input (untuk unit testing manual)
+        function testAllCases() {
+            console.log('=== UNIT TEST MANUAL ===');
+            
+            // Test case 1: Bilangan negatif
+            console.log('Test 1 - Input: -5, Expected: Negatif, Actual:', CariTandaBilangan(-5));
+            console.log('Test 2 - Input: -100, Expected: Negatif, Actual:', CariTandaBilangan(-100));
+            console.log('Test 3 - Input: -0.5, Expected: Negatif, Actual:', CariTandaBilangan(-0.5));
+            
+            // Test case 2: Bilangan positif
+            console.log('Test 4 - Input: 5, Expected: Positif, Actual:', CariTandaBilangan(5));
+            console.log('Test 5 - Input: 100, Expected: Positif, Actual:', CariTandaBilangan(100));
+            console.log('Test 6 - Input: 0.5, Expected: Positif, Actual:', CariTandaBilangan(0.5));
+            
+            // Test case 3: Nol
+            console.log('Test 7 - Input: 0, Expected: Nol, Actual:', CariTandaBilangan(0));
+            console.log('Test 8 - Input: 0.0, Expected: Nol, Actual:', CariTandaBilangan(0.0));
+            
+            console.log('=== END UNIT TEST ===');
+        }
+        
+        // Jalankan unit test otomatis di console
+        setTimeout(testAllCases, 1000);
+    </script>
+</body>
+</html>
