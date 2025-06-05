@@ -1,0 +1,265 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.header {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding: 30px;
+}
+
+.calculator-section {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid #e9ecef;
+}
+
+.calculator-section h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #495057;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.calculate-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.calculate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.result-display {
+    margin-top: 20px;
+    padding: 15px;
+    background: #e8f5e8;
+    border: 2px solid #28a745;
+    border-radius: 8px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: #155724;
+}
+
+.result-display.error {
+    background: #f8d7da;
+    border-color: #dc3545;
+    color: #721c24;
+}
+
+.testing-section {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid #e9ecef;
+}
+
+.testing-section h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.test-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.test-btn {
+    flex: 1;
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.test-btn:hover {
+    background: #218838;
+}
+
+.test-btn.clear {
+    background: #6c757d;
+}
+
+.test-btn.clear:hover {
+    background: #5a6268;
+}
+
+.test-results {
+    background: #ffffff;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.profiling-section {
+    grid-column: 1 / -1;
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid #e9ecef;
+    margin-top: 20px;
+}
+
+.profiling-section h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.profiling-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.profiling-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid #dee2e6;
+    text-align: center;
+}
+
+.profiling-card h3 {
+    color: #495057;
+    margin-bottom: 10px;
+}
+
+.profiling-value {
+    font-size: 2em;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.test-pass {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.test-fail {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.rules-section {
+    grid-column: 1 / -1;
+    background: #fff3cd;
+    border: 2px solid #ffc107;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.rules-section h3 {
+    color: #856404;
+    margin-bottom: 15px;
+}
+
+.rules-section ul {
+    color: #856404;
+    padding-left: 20px;
+}
+
+.rules-section li {
+    margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .header h1 {
+        font-size: 2em;
+    }
+    
+    .test-controls {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul 12 - GUI Kalkulator Pangkat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔢 Kalkulator Pangkat</h1>
+            <p>Modul 12 - GUI dengan Profiling dan Unit Testing</p>
+        </div>
+        
+        <div class="main-content">
+            <div class="rules-section">
+                <h3>📋 Aturan Khusus Fungsi CariNilaiPangkat:</h3>
+                <ul>
+                    <li>Jika b = 0, hasil selalu 1 (meskipun a = 0)</li>
+                    <li>Jika b < 0, hasil = -1</li>
+                    <li>Jika b > 10 atau a > 100, hasil = -2</li>
+                    <li>Jika hasil > batas integer maksimal, hasil = -3</li>
+                </ul>
+            </div>
+            
+            <div class="calculator-section">
+                <h2>🧮 Kalkulator Pangkat</h2>
+                
+                <div class="input-group">
+                    <label for="inputA">Nilai a (basis):</label>
+                    <input type="number" id="inputA" placeholder="Masukkan nilai a">
+                </div>
+                
+                <div class="input-group">
+                    <label for="inputB">Nilai b (pangkat):</label>
+                    <input type="number" id="inputB" placeholder="Masukkan nilai b">
+                </div>
+                
+                <button class="calculate-btn" onclick="calculatePower()">
+                    🚀 Hitung a^b
+                </button>
+                
+                <div id="resultDisplay" class="result-display">
+                    Hasil perhitungan akan ditampilkan di sini...
+                </div>
+            </div>
+            
+            <div class="testing-section">
+                <h2>🧪 Unit Testing</h2>
+                
+                <div class="test-controls">
+                    <button class="test-btn" onclick="runAllTests()">
+                        ▶️ Jalankan Semua Test
+                    </button>
+                    <button class="test-btn clear" onclick="clearTestResults()">
+                        🗑️ Bersihkan Hasil
+                    </button>
+                </div>
+                
+                <div id="testResults" class="test-results">
+                    Klik "Jalankan Semua Test" untuk memulai unit testing...
+                </div>
+            </div>
+            
+            <div class="profiling-section">
+                <h2>📊 Software Profiling</h2>
+                
+                <div class="profiling-grid">
+                    <div class="profiling-card">
+                        <h3>Memory Usage</h3>
+                        <div id="memoryUsage" class="profiling-value">-</div>
+                        <small>MB</small>
+                    </div>
+                    
+                    <div class="profiling-card">
+                        <h3>Execution Time</h3>
+                        <div id="executionTime" class="profiling-value">-</div>
+                        <small>ms</small>
+                    </div>
+                    
+                    <div class="profiling-card">
+                        <h3>Function Calls</h3>
+                        <div id="functionCalls" class="profiling-value">0</div>
+                        <small>calls</small>
+                    </div>
+                    
+                    <div class="profiling-card">
+                        <h3>Tests Passed</h3>
+                        <div id="testsPassed" class="profiling-value">0</div>
+                        <small>/ 0</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP Modul 12 - Cari Tanda Bilangan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Cari Tanda Bilangan</h1>
+            <p>TP Modul 12 - Software Testing & Profiling</p>
+        </div>
+
+        <div class="form-group">
+            <label for="inputNumber">Masukkan Angka:</label>
+            <input type="number" id="inputNumber" placeholder="Contoh: -5, 0, 10">
+        </div>
+
+        <button class="btn" onclick="cariTandaBilangan()">Cek Tanda Bilangan</button>
+
+        <div class="output" id="output">
+            Hasil akan ditampilkan di sini...
+        </div>
+
+        <div class="performance-monitor">
+            <h3>Performance Monitor</h3>
+            <div class="metric">
+                <label>Memory Usage (Estimasi):</label>
+                <span id="memoryUsage">~2.5 MB</span>
+            </div>
+            <div class="metric">
+                <label>CPU Usage (Estimasi):</label>
+                <span id="cpuUsage">< 1%</span>
+            </div>
+            <div class="metric">
+                <label>Execution Time:</label>
+                <span id="executionTime">0 ms</span>
+            </div>
+            <div class="metric">
+                <label>Total Executions:</label>
+                <span id="totalExecutions">0</span>
+            </div>
+        </div>
+
+        <div class="test-results">
+            <h3>Unit Test Results</h3>
+            <div id="testCases">
+                <p style="text-align: center; color: #666;">Klik tombol di bawah untuk menjalankan unit tests</p>
+            </div>
+            <button class="btn run-tests-btn" onclick="runUnitTests()">Jalankan Unit Tests</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
